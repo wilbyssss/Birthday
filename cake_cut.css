@@ -1,0 +1,72 @@
+:root {
+  --cake-color: #f39c12;
+  --cream-color: #fff;
+}
+
+body {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  background: #333;
+  perspective: 1000px; /* Profondeur de champ */
+}
+
+.cake {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(-20px) rotateY(30deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.half {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Le dessus du gâteau (demi-cercle) */
+.top {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: var(--cake-color);
+  border-radius: 100px 100px 0 0; /* Demi-cercle */
+  transform: rotateX(90deg) translateY(-50px);
+  border-bottom: 5px solid var(--cream-color);
+}
+
+/* La face bombée */
+.side {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  background: var(--cake-color);
+  border-radius: 100px 100px 0 0;
+  transform: translateZ(-50px);
+  /* On utilise un dégradé pour simuler l'arrondi */
+  background: linear-gradient(to bottom, var(--cake-color), #d35400);
+}
+
+/* La surface intérieure quand on coupe */
+.cut-surface {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  background: #eee; /* Couleur de la génoise intérieure */
+  transform: rotateY(90deg) translateX(50px);
+}
+
+/* Animation lors du clic */
+.cake.open .left {
+  transform: translateX(-50px) rotateZ(-10deg);
+}
+
+.cake.open .right {
+  transform: translateX(50px) rotateZ(10deg);
+}
