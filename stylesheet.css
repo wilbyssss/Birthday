@@ -397,11 +397,19 @@ audio {
    MESSAGE
    ============================================= */
 .message {
-	position: relative;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	z-index: 300;
-	margin-top: 200px;
+	width: 90%;
+	max-width: 800px;
+	text-align: center;
 	display: none;
 }
+
 .message p {
 	font-family: 'Signika', sans-serif;
 	font-size: 30px;
@@ -410,6 +418,7 @@ audio {
 	text-shadow: 2px 2px 2px #FFF;
 	display: none;
 	font-weight: bold;
+	margin: 10px 0;
 }
 
 /* =============================================
@@ -522,7 +531,6 @@ audio {
   }
   .message {
     padding: 0 20px;
-    margin-top: 150px;
   }
   .message p {
     font-size: 20px;
@@ -579,7 +587,6 @@ audio {
   }
   .message {
     padding: 0 12px;
-    margin-top: 100px;
   }
   .message p {
     font-size: 16px;
