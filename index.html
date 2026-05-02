@@ -35,10 +35,50 @@
 <body>
 	<div class="loading"></div>
 	<audio class="song" controls loop>
-		<source src="hbd.mpeg">
+		<source src="hbd.mp3">
 		</source>
 		Your browser isn't invited for super fun audio time.
 	</audio>
+
+	<!-- POPUP CHOIX DE SON -->
+<div id="sound-modal" style="
+  display:none; position:fixed; top:0; left:0;
+  width:100%; height:100%; z-index:99999;
+  background:rgba(0,0,0,0.75);
+  justify-content:center; align-items:center;">
+
+  <div style="
+    background:#fff; border-radius:16px;
+    padding:30px 24px; max-width:360px; width:90%;
+    text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    font-family:'Signika',sans-serif;">
+
+    <h3 style="color:#466baf; margin-bottom:6px;">🎵 Choisis ta musique</h3>
+    <p style="color:#888; font-size:13px; margin-bottom:20px;">
+      Si tu ne choisis pas, la musique par défaut se lancera dans <span id="countdown">5</span>s
+    </p>
+
+    <div id="song-list" style="display:flex; flex-direction:column; gap:10px;">
+      <!-- Ajoute autant de chansons que tu veux ici -->
+      <button class="song-choice btn btn-primary" data-src="hbd.mp3"
+        style="width:100%; padding:12px; font-size:14px;">
+        🎂 Happy Birthday (défaut)
+      </button>
+      <button class="song-choice btn btn-primary" data-src="hbd.mpeg"
+        style="width:100%; padding:12px; font-size:14px; background:#7b5ea7; border-color:#7b5ea7;">
+        🎵 Early 20's
+      </button>
+    </div>
+
+    <button id="skip-sound" style="
+      margin-top:16px; background:none; border:none;
+      color:#aaa; font-size:13px; cursor:pointer; text-decoration:underline;">
+      Passer (son par défaut)
+    </button>
+  </div>
+</div>
+
+
 	<div class="balloons text-center" id="b1">
 		<h2 style="color:#F2B300;">H</h2>
 	</div>
@@ -94,6 +134,7 @@
 				<img src="banner.png" class="bannar">
 			</div>
 		</div>
+	
 		<div class="row cake-cover">
 			<div class="col-md-12 texr-center">
 				<div class="cake">
@@ -136,7 +177,7 @@
 		</div>
 		<div class="navbar navbar-fixed-bottom">
 			<div class="row">
-				<div class="col-md-6 text-center col-md-offset-3">
+				<div class="col-md-6 col-md-offset-3 col-xs-12 text-center">
 					<button class="btn btn-primary turn_on_btn" id="turn_on">Et si t'allumais ? 💡</button>
 					<button class="btn btn-primary" id="play">Monte le son ! 🎶</button>
 					<button class="btn btn-primary" id="bannar_coming">Place à la déco ! ✨</button>
